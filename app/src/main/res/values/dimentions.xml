@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="et_margin_start_end">22dp</dimen>
+    <dimen name="et_margin_vertical">8dp</dimen>
+    <dimen name="login_margin_vertical">20dp</dimen>
+
+</resources>
