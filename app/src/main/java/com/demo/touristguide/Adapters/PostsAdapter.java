@@ -1,14 +1,10 @@
-package com.demo.touristguide.UserHome.Posts;
+package com.demo.touristguide.Adapters;
 
-import android.Manifest;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.location.Location;
-import android.os.Build;
-import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,11 +18,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.demo.touristguide.AdminHome.Post.DetailsTemp;
+import com.demo.touristguide.Templates.DetailsTemp;
 import com.demo.touristguide.DataModels.PostDataModel;
 import com.demo.touristguide.R;
-import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
@@ -36,7 +30,6 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-import pub.devrel.easypermissions.AfterPermissionGranted;
 import pub.devrel.easypermissions.EasyPermissions;
 
 public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.myPostViewHolder> implements EasyPermissions.PermissionCallbacks {

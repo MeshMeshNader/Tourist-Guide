@@ -1,16 +1,10 @@
-package com.demo.touristguide.AdminHome.Hotels;
+package com.demo.touristguide.AdminHome.Special;
 
 import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -18,11 +12,18 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.os.Handler;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.demo.touristguide.Adapters.PostsAdapter;
 import com.demo.touristguide.AdminHome.AdminHome;
 import com.demo.touristguide.AdminHome.PostsManage.AddPost;
 import com.demo.touristguide.DataModels.PostDataModel;
 import com.demo.touristguide.R;
-import com.demo.touristguide.Adapters.PostsAdapter;
 import com.demo.touristguide.Utils.CustomProgress;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -40,33 +41,31 @@ import java.util.ArrayList;
 import pub.devrel.easypermissions.AfterPermissionGranted;
 import pub.devrel.easypermissions.EasyPermissions;
 
-
-public class HotelManagement extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
+public class SpecialManagement extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
 
 
     View view;
-    ArrayList<PostDataModel> mHotelsList;
-    RecyclerView mHotelsRecyclerView;
+    ArrayList<PostDataModel> mSpecialsList;
+    RecyclerView mSpecialsRecyclerView;
     LinearLayoutManager layoutManager;
     PostsAdapter postAdapter;
     CustomProgress mCustomProgress = CustomProgress.getInstance();
     SwipeRefreshLayout refreshLayout;
     FloatingActionButton fab;
     TextView mNoResults;
-    private DatabaseReference mHotelsRef;
+    private DatabaseReference mSpecialsRef;
     double deviceLat, deviceLon;
     FusedLocationProviderClient mFusedLocationProviderClient;
 
-    public HotelManagement() {
-        // Required empty public constructor
-    }
+    public SpecialManagement() {
 
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        view = inflater.inflate(R.layout.fragment_hotel_management, container, false);
+        view= inflater.inflate(R.layout.fragment_special_management, container, false);
 
         initViews();
 
@@ -84,48 +83,48 @@ public class HotelManagement extends Fragment implements SwipeRefreshLayout.OnRe
             }
         });
 
-        mHotelsRef = FirebaseDatabase.getInstance().getReference("AllHotels");
-        mHotelsList = new ArrayList<>();
+        mSpecialsRef = FirebaseDatabase.getInstance().getReference("AllSpecials");
+        mSpecialsList = new ArrayList<>();
 
-        mNoResults = view.findViewById(R.id.hotel_no_result);
+        mNoResults = view.findViewById(R.id.special_no_result);
 
-        mHotelsRecyclerView = view.findViewById(R.id.admin_hotels_recyclerview);
-        mHotelsRecyclerView.setHasFixedSize(true);
+        mSpecialsRecyclerView = view.findViewById(R.id.admin_specials_recyclerview);
+        mSpecialsRecyclerView.setHasFixedSize(true);
 
         layoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
-        mHotelsRecyclerView.setLayoutManager(layoutManager);
+        mSpecialsRecyclerView.setLayoutManager(layoutManager);
 
         getData();
 
 
-        fab = view.findViewById(R.id.add_hotel_btn);
+        fab = view.findViewById(R.id.add_special_btn);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent addNewHotel = new Intent(getContext(), AddPost.class);
-                addNewHotel.putExtra("pageTitle", "Add Hotel");
-                addNewHotel.putExtra("postName", "Hotel Name");
-                addNewHotel.putExtra("postSection", "Hotels");
-                addNewHotel.putExtra("databaseRef", "AllHotels");
+                addNewHotel.putExtra("pageTitle", "Add Special Place");
+                addNewHotel.putExtra("postName", "Place Name");
+                addNewHotel.putExtra("postSection", "Specials");
+                addNewHotel.putExtra("databaseRef", "AllSpecials");
                 startActivity(addNewHotel);
             }
         });
-        refreshLayout = view.findViewById(R.id.hotel_management_swipe_down);
+        refreshLayout = view.findViewById(R.id.special_management_swipe_down);
         refreshLayout.setOnRefreshListener(this);
 
-        mCustomProgress.showProgress(getContext(), "Loading Hotels..!", true);
+        mCustomProgress.showProgress(getContext(), "Loading Special..!", true);
     }
 
 
     private void getData() {
         checkPermmisions();
-        mHotelsRef.addValueEventListener(new ValueEventListener() {
+        mSpecialsRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                mHotelsList.clear();
+                mSpecialsList.clear();
                 if (snapshot.exists()) {
                     for (DataSnapshot childSnap : snapshot.getChildren()) {
-                        mHotelsList.add(childSnap.getValue(PostDataModel.class));
+                        mSpecialsList.add(childSnap.getValue(PostDataModel.class));
                     }
                     if (mNoResults.getVisibility() == View.VISIBLE)
                         mNoResults.setVisibility(View.GONE);
@@ -197,10 +196,10 @@ public class HotelManagement extends Fragment implements SwipeRefreshLayout.OnRe
 
 
     public void showHotels() {
-        postAdapter = new PostsAdapter(getContext(), mHotelsList,true , true, deviceLat , deviceLon);
+        postAdapter = new PostsAdapter(getContext(), mSpecialsList,true , true, deviceLat , deviceLon);
         layoutManager.setReverseLayout(true);
         layoutManager.setStackFromEnd(true);
-        mHotelsRecyclerView.setAdapter(postAdapter);
+        mSpecialsRecyclerView.setAdapter(postAdapter);
         mCustomProgress.hideProgress();
 
 
@@ -223,6 +222,7 @@ public class HotelManagement extends Fragment implements SwipeRefreshLayout.OnRe
             }
         }, 1000);
     }
+
 
 
 }

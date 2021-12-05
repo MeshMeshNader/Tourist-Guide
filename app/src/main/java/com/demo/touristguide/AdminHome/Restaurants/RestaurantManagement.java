@@ -22,7 +22,7 @@ import com.demo.touristguide.AdminHome.AdminHome;
 import com.demo.touristguide.AdminHome.PostsManage.AddPost;
 import com.demo.touristguide.DataModels.PostDataModel;
 import com.demo.touristguide.R;
-import com.demo.touristguide.UserHome.Posts.PostsAdapter;
+import com.demo.touristguide.Adapters.PostsAdapter;
 import com.demo.touristguide.Utils.CustomProgress;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;

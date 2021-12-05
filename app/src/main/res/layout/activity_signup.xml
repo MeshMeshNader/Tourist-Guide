@@ -39,6 +39,9 @@
                 android:background="@drawable/edit_text_shape"
                 android:gravity="center"
                 android:hint="First Name"
+                android:inputType="text"
+                android:maxLines="1"
+                android:nextFocusDown="@id/signup_last_name_et"
                 android:textSize="18sp" />
 
             <EditText
@@ -51,6 +54,8 @@
                 android:background="@drawable/edit_text_shape"
                 android:gravity="center"
                 android:hint="Last Name"
+                android:inputType="text"
+                android:maxLines="1"
                 android:textSize="18sp" />
 
         </LinearLayout>
@@ -65,6 +70,8 @@
             android:background="@drawable/edit_text_shape"
             android:gravity="center"
             android:hint="Email"
+            android:inputType="text"
+            android:maxLines="1"
             android:textSize="18sp" />
 
         <EditText
@@ -106,6 +113,7 @@
             android:gravity="center"
             android:hint="Password"
             android:inputType="textPassword"
+            android:maxLines="1"
             android:textSize="18sp" />
 
         <EditText
@@ -119,6 +127,7 @@
             android:gravity="center"
             android:hint="Confirm Password"
             android:inputType="textPassword"
+            android:maxLines="1"
             android:textSize="18sp" />
 
         <TextView

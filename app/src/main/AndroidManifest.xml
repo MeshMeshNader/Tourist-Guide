@@ -7,7 +7,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -16,6 +16,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TouristGuide">
+        <activity android:name=".Templates.TranslatorTemp"></activity>
+        <activity android:name=".UserHome.Advices.Advices" />
+        <activity android:name=".UserHome.Taxi" />
+        <activity android:name=".UserHome.Translate" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -27,19 +31,16 @@
         <activity
             android:name=".AdminHome.PostsManage.Maps.MapsActivity"
             android:label="Map" />
-
         <activity android:name=".UserHome.EditProfile" />
         <activity android:name=".AdminHome.PostsManage.AddPost" />
         <activity android:name=".UserHome.UserHome" />
         <activity android:name=".AdminHome.AdminHome" />
         <activity android:name=".Auth.ForgetPassword" />
         <activity android:name=".Auth.Login" />
-        <activity android:name=".AdminHome.Post.DetailsTemp" />
+        <activity android:name=".Templates.DetailsTemp" />
         <activity android:name=".AdminHome.Post.See_Full_Image" />
         <activity android:name=".Auth.Signup" />
         <activity android:name=".Splash">
-
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

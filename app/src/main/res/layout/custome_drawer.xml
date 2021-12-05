@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.navigation.NavigationView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="left"
+    android:background="@color/white"
+    android:fitsSystemWindows="true"
+    android:layoutDirection="ltr"
+    android:textDirection="ltr">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/top_of_nav"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:background="@color/white"
+            android:paddingBottom="10dp">
+
+            <ImageView
+                android:id="@+id/profile_picture_nav"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/et_margin_vertical"
+                android:src="@drawable/logo_text" />
+
+            <TextView
+                android:id="@+id/user_name_nav"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/profile_picture_nav"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/et_margin_vertical"
+                android:text="Welcome User Name"
+                android:textColor="@color/green_cyan"
+                android:textSize="19sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/my_profile_nav"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="15dp"
+                    android:padding="@dimen/nav_item_drawable_padding"
+                    android:text="My Profile"
+                    android:textColor="@color/green_cyan"
+                    android:textSize="@dimen/nav_item_font_size"
+                    android:textStyle="bold"
+                    app:drawableLeftCompat="@drawable/ic_person"
+                    app:drawableRightCompat="@drawable/ic_baseline_arrow_forward_ios_24" />
+
+
+                <TextView
+                    android:id="@+id/home_nav"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="15dp"
+                    android:padding="@dimen/nav_item_drawable_padding"
+                    android:text="Home"
+                    android:visibility="gone"
+                    android:textColor="@color/green_cyan"
+                    android:textSize="@dimen/nav_item_font_size"
+                    android:textStyle="bold"
+                    app:drawableLeftCompat="@drawable/ic_baseline_home_24"
+                    app:drawableRightCompat="@drawable/ic_baseline_arrow_forward_ios_24" />
+
+
+                <TextView
+                    android:id="@+id/translate_nav"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="15dp"
+                    android:padding="@dimen/nav_item_drawable_padding"
+                    android:text="Translate"
+                    android:textColor="@color/green_cyan"
+                    android:textSize="@dimen/nav_item_font_size"
+                    android:textStyle="bold"
+                    app:drawableLeftCompat="@drawable/ic_baseline_g_translate_24"
+                    app:drawableRightCompat="@drawable/ic_baseline_arrow_forward_ios_24" />
+
+                <TextView
+                    android:id="@+id/taxi_nav"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="15dp"
+                    android:padding="@dimen/nav_item_drawable_padding"
+                    android:text="Taxi"
+                    android:textColor="@color/green_cyan"
+                    android:textSize="@dimen/nav_item_font_size"
+                    android:textStyle="bold"
+                    app:drawableLeftCompat="@drawable/ic_baseline_local_taxi_24"
+                    app:drawableRightCompat="@drawable/ic_baseline_arrow_forward_ios_24" />
+
+                <TextView
+                    android:id="@+id/travelling_advices_nav"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="15dp"
+                    android:padding="@dimen/nav_item_drawable_padding"
+                    android:text="Travelling Advices"
+                    android:textColor="@color/green_cyan"
+                    android:textSize="@dimen/nav_item_font_size"
+                    android:textStyle="bold"
+                    app:drawableLeftCompat="@drawable/ic_baseline_sticky_note_2_24"
+                    app:drawableRightCompat="@drawable/ic_baseline_arrow_forward_ios_24" />
+
+                <TextView
+                    android:id="@+id/log_out_nav"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="15dp"
+                    android:padding="@dimen/nav_item_drawable_padding"
+                    android:text="Log Out"
+                    android:textColor="@color/green_cyan"
+                    android:textSize="@dimen/nav_item_font_size"
+                    android:textStyle="bold"
+                    app:drawableEndCompat="@drawable/ic_baseline_arrow_forward_ios_24"
+                    app:drawableStartCompat="@drawable/ic_baseline_exit_to_app_24" />
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </LinearLayout>
+
+
+</com.google.android.material.navigation.NavigationView>

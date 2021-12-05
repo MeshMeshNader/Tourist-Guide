@@ -2,7 +2,6 @@ package com.demo.touristguide.AdminHome.PostsManage;
 
 import android.Manifest;
 import android.content.Intent;
-import android.location.Location;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -20,9 +19,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.demo.touristguide.Adapters.AddPostImagesAdapter;
 import com.demo.touristguide.AdminHome.PostsManage.Maps.MapsActivity;
 import com.demo.touristguide.DataModels.PostDataModel;
 import com.demo.touristguide.R;
@@ -39,7 +38,6 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 

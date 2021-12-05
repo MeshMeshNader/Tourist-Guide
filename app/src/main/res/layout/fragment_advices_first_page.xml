@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserHome.Advices.Pages.AdvicesFirstPage">
+
+    <TextView
+        android:id="@+id/title_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="@dimen/et_margin_small_start_end"
+        android:layout_marginEnd="40dp"
+        android:gravity="center"
+        android:shadowColor="@color/text_shadow"
+        android:shadowDx="-2"
+        android:shadowDy="-2"
+        android:shadowRadius="1"
+        android:text="Advices Before Travelling"
+        android:textColor="@color/green_cyan"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/intro_pages_boxes"
+        android:layout_below="@id/title_text">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title_text"
+            android:layout_margin="@dimen/et_margin_small_start_end"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:padding="@dimen/et_margin_tiny_start_end"
+                android:shadowColor="@color/text_shadow"
+                android:shadowDx="0"
+                android:shadowDy="-1"
+                android:shadowRadius="0.5"
+                android:text="1. Always pack a towel"
+                android:textColor="@color/sunny_yellow"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="@dimen/et_margin_small_start_end"
+                android:shadowColor="@color/text_shadow"
+                android:shadowDx="-1"
+                android:shadowDy="-2"
+                android:shadowRadius="1"
+                android:text="It’s the key to successful galactic hitchhiking and plain common sense. You never know when you will need it, whether it’s at the beach, on a picnic, or just to dry off. While many hostels offer towels, you never know and carrying a small towel won’t add that much weight to your bag."
+                android:textColor="@color/green_cyan"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:padding="@dimen/et_margin_tiny_start_end"
+                android:shadowColor="@color/text_shadow"
+                android:shadowDx="0"
+                android:shadowDy="-1"
+                android:shadowRadius="0.5"
+                android:text="2. Buy a small backpack/suitcase"
+                android:textColor="@color/sunny_yellow"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="@dimen/et_margin_small_start_end"
+                android:shadowColor="@color/text_shadow"
+                android:shadowDx="-1"
+                android:shadowDy="-2"
+                android:shadowRadius="1"
+                android:text="By purchasing a small backpack (I like something around 35/40 liters), you will be forced you to pack light and avoid carrying too much stuff. Humans have a natural tendency to want to fill space so if you pack light but have lots of extra room in your bag, you’ll end up going “well, I guess I can take more” and then regret it."
+                android:textColor="@color/green_cyan"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+    <RelativeLayout
+        android:id="@+id/intro_pages_boxes"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_above="@id/next_btn"
+        android:layout_marginTop="@dimen/et_margin_small_start_end"
+        android:layout_marginBottom="@dimen/et_margin_small_start_end"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <ImageView
+            android:id="@+id/intro_first_box"
+            android:layout_width="@dimen/box_w_and_h"
+            android:layout_height="@dimen/box_w_and_h"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"
+            android:layout_toStartOf="@id/intro_second_box"
+            android:background="@drawable/intro_box_shape_fill_dark_pink" />
+
+        <ImageView
+            android:id="@+id/intro_second_box"
+            android:layout_width="@dimen/box_w_and_h"
+            android:layout_height="@dimen/box_w_and_h"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@id/intro_third_box"
+            android:background="@drawable/intro_box_shape_empty__dark_pink" />
+
+        <ImageView
+            android:id="@+id/intro_third_box"
+            android:layout_width="@dimen/box_w_and_h"
+            android:layout_height="@dimen/box_w_and_h"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/intro_box_shape_empty__dark_pink" />
+
+
+        <ImageView
+            android:id="@+id/intro_fourth_box"
+            android:layout_width="@dimen/box_w_and_h"
+            android:layout_height="@dimen/box_w_and_h"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@id/intro_third_box"
+            android:background="@drawable/intro_box_shape_empty__dark_pink" />
+
+        <ImageView
+            android:id="@+id/intro_fifth_box"
+            android:layout_width="@dimen/box_w_and_h"
+            android:layout_height="@dimen/box_w_and_h"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@id/intro_fourth_box"
+            android:background="@drawable/intro_box_shape_empty__dark_pink" />
+
+
+        <ImageView
+            android:id="@+id/next_page_image"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/et_margin_vertical"
+            android:src="@drawable/ic_next_dark_pink" />
+
+
+    </RelativeLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/next_btn"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="@dimen/et_margin_start_end"
+        android:layout_marginEnd="@dimen/et_margin_start_end"
+        android:layout_marginBottom="25dp"
+        android:background="@drawable/button_shape_green"
+        android:text="Next"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+
+</RelativeLayout>

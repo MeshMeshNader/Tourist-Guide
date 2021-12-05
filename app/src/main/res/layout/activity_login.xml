@@ -26,6 +26,8 @@
         android:layout_below="@id/login_logo_text"
         android:background="@drawable/edit_text_shape"
         android:gravity="center"
+        android:inputType="text"
+        android:maxLines="1"
         android:hint="Email"
         android:textSize="18sp" />
 
@@ -41,6 +43,7 @@
         android:background="@drawable/edit_text_shape"
         android:gravity="center"
         android:hint="Password"
+        android:maxLines="1"
         android:inputType="textPassword"
         android:textSize="18sp" />
 

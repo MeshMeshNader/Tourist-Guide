@@ -1,4 +1,4 @@
-package com.demo.touristguide.AdminHome.PostsManage;
+package com.demo.touristguide.Adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;

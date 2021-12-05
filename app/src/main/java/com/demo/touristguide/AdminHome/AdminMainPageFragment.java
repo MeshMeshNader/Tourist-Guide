@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 
 import com.demo.touristguide.AdminHome.Hotels.HotelManagement;
 import com.demo.touristguide.AdminHome.Restaurants.RestaurantManagement;
+import com.demo.touristguide.AdminHome.Special.SpecialManagement;
 import com.demo.touristguide.R;
 import com.demo.touristguide.UserHome.EditProfile;
 
@@ -21,7 +22,7 @@ public class AdminMainPageFragment extends Fragment implements View.OnClickListe
     View view;
 
     AdminHome mBasicHome;
-    LinearLayout mHotelBtn, mRestaurantBtn;
+    LinearLayout mHotelBtn, mRestaurantBtn , mSpecialBtn;
 
     public AdminMainPageFragment() {
         // Required empty public constructor
@@ -56,9 +57,11 @@ public class AdminMainPageFragment extends Fragment implements View.OnClickListe
 
         mHotelBtn = view.findViewById(R.id.admin_hotel_btn);
         mRestaurantBtn = view.findViewById(R.id.admin_restaurant_btn);
+        mSpecialBtn = view.findViewById(R.id.admin_special_btn);
 
         mHotelBtn.setOnClickListener(this);
         mRestaurantBtn.setOnClickListener(this);
+        mSpecialBtn.setOnClickListener(this);
     }
 
 
@@ -75,6 +78,12 @@ public class AdminMainPageFragment extends Fragment implements View.OnClickListe
             case R.id.admin_restaurant_btn:
 
                 mBasicHome.loadOutFragment(new RestaurantManagement(), "Restaurants Manage", 2, getActivity());
+
+                break;
+
+            case R.id.admin_special_btn:
+
+                mBasicHome.loadOutFragment(new SpecialManagement(), "Special Manage", 3, getActivity());
 
                 break;
 

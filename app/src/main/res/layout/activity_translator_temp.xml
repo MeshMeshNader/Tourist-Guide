@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Templates.DetailsTemp">
+    tools:context=".Templates.TranslatorTemp">
 
     <ScrollView
         android:id="@+id/details_scroll_view"
@@ -15,55 +15,24 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ScrollView
-                android:id="@+id/scrollImagesView"
+            <ImageView
+                android:id="@+id/translator_detail_image"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="350dp"
+                android:src="@drawable/translator1"
+                />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <com.smarteist.autoimageslider.SliderView
-                            android:id="@+id/imageSlider"
-                            android:layout_width="match_parent"
-                            android:layout_height="350dp"
-                            app:sliderAnimationDuration="600"
-                            app:sliderAutoCycleDirection="back_and_forth"
-                            app:sliderAutoCycleEnabled="false"
-                            app:sliderCircularHandlerEnabled="true"
-                            app:sliderIndicatorAnimationDuration="600"
-                            app:sliderIndicatorGravity="center_horizontal|bottom"
-                            app:sliderIndicatorMargin="15dp"
-                            app:sliderIndicatorOrientation="horizontal"
-                            app:sliderIndicatorPadding="3dp"
-                            app:sliderIndicatorRadius="2dp"
-                            app:sliderIndicatorSelectedColor="#5A5A5A"
-                            app:sliderIndicatorUnselectedColor="#FFF"
-                            app:sliderScrollTimeInSec="1"
-                            app:sliderStartAutoCycle="true" />
-
-                    </RelativeLayout>
-
-                </LinearLayout>
-
-            </ScrollView>
 
 
             <RelativeLayout
                 android:id="@+id/just_line"
                 android:layout_width="match_parent"
                 android:layout_height="3dp"
-                android:layout_below="@id/scrollImagesView"
+                android:layout_below="@id/translator_detail_image"
                 android:background="@color/green_cyan" />
 
             <TextView
-                android:id="@+id/post_detail_name"
+                android:id="@+id/translator_detail_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/just_line"
@@ -80,23 +49,35 @@
                 android:id="@+id/details"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/post_detail_name"
+                android:layout_below="@id/translator_detail_name"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginRight="16dp"
                 android:orientation="vertical">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/just_line"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="Our Price..!"
+                    android:textColor="@color/green_cyan"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/post_detail_description"
+                    android:id="@+id/translator_detail_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginLeft="0dp"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="15dp"
                     android:gravity="center"
-                    android:text="Details about the application"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:text="40"
+                    android:textColor="@color/sunny_yellow"
+                    android:textStyle="bold"
                     android:textSize="18sp" />
 
 
@@ -107,26 +88,26 @@
                     android:layout_alignParentLeft="true"
                     android:layout_marginLeft="16dp"
                     android:layout_marginTop="16dp"
-                    android:text="How do you go to it..!"
+                    android:text="Contact Us..!"
                     android:textColor="@color/green_cyan"
                     android:textSize="20dp"
                     android:textStyle="bold" />
 
 
                 <TextView
-                    android:id="@+id/post_address_description"
+                    android:id="@+id/translator_detail_desc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginLeft="0dp"
                     android:layout_marginTop="15dp"
                     android:gravity="center"
-                    android:text="Details about the application"
+                    android:text="Try Out our Professional Native Translators Specialized in 40+ Subjects Today! "
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/post_address_distance"
+                    android:id="@+id/translator_detail_phone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -135,20 +116,20 @@
                     android:gravity="center"
                     android:text=""
                     android:textColor="@color/green_cyan"
-                    android:textStyle="bold"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/post_detail_map_btn"
+                    android:id="@+id/translator_detail_call_btn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="50dp"
                     android:layout_marginTop="20dp"
-                    android:layout_marginBottom="20dp"
                     android:layout_marginRight="50dp"
+                    android:layout_marginBottom="20dp"
                     android:background="@drawable/button_shape_yellow"
-                    android:text="Route on the map"
+                    android:text="Call"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
                     android:textSize="20sp"

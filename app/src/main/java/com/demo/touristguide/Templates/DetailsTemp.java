@@ -1,4 +1,4 @@
-package com.demo.touristguide.AdminHome.Post;
+package com.demo.touristguide.Templates;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -14,6 +14,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.demo.touristguide.AdminHome.Post.SliderAdapterExample;
 import com.demo.touristguide.DataModels.PostDataModel;
 import com.demo.touristguide.R;
 import com.google.android.gms.location.FusedLocationProviderClient;
