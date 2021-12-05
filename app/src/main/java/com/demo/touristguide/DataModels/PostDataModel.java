@@ -9,6 +9,7 @@ public class PostDataModel {
     String postDescription;
     String postAddressTxt;
     String postDistance;
+    String postBookURL;
     String postSection;
     double lat , lon;
     ArrayList<String> postImageURL;
@@ -17,7 +18,7 @@ public class PostDataModel {
     }
 
     public PostDataModel(String postKey, String postLabel, String postDescription, String postAddressTxt , String postDistance, String postSection,
-                         ArrayList<String> postImageURL, double lat , double lon) {
+                         ArrayList<String> postImageURL, double lat , double lon, String postBookURL) {
         this.postKey = postKey;
         this.postLabel = postLabel;
         this.postDescription = postDescription;
@@ -27,6 +28,7 @@ public class PostDataModel {
         this.postAddressTxt = postAddressTxt;
         this.lat = lat;
         this.lon = lon;
+        this.postBookURL = postBookURL;
     }
 
     public double getLat() {
@@ -99,5 +101,13 @@ public class PostDataModel {
 
     public void setPostAddressTxt(String postAddressTxt) {
         this.postAddressTxt = postAddressTxt;
+    }
+
+    public String getPostBookURL() {
+        return postBookURL;
+    }
+
+    public void setPostBookURL(String postBookURL) {
+        this.postBookURL = postBookURL;
     }
 }

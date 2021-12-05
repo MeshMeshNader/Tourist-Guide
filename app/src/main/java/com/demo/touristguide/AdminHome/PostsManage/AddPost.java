@@ -63,16 +63,15 @@ public class AddPost extends AppCompatActivity implements View.OnClickListener, 
     String currentUserID = "";
     String postImageURL = "";
     String postKey = "";
+    String bookURL = "";
     double lat, lon;
-
-
 
 
     CustomProgress mCustomProgress = CustomProgress.getInstance();
 
 
     TextView mPostNameTV, mPageTitle;
-    EditText mPostNameET, mDescription;
+    EditText mPostNameET, mDescription, mBookURL;
     TextView mAddressEt;
     ImageView mAddImageBtn, mAddLocationBtn, mBackBtn;
     Button mAddButton;
@@ -92,8 +91,6 @@ public class AddPost extends AppCompatActivity implements View.OnClickListener, 
     private void initViews() {
 
 
-
-
         Intent i = getIntent();
         mAddressEt = findViewById(R.id.post_add_address);
 
@@ -111,6 +108,7 @@ public class AddPost extends AppCompatActivity implements View.OnClickListener, 
         mPostNameTV.setText(postName);
         mPostNameET = findViewById(R.id.post_add_name_et);
         mDescription = findViewById(R.id.post_add_description_et);
+        mBookURL = findViewById(R.id.post_add_book_url);
         mAddImageBtn = findViewById(R.id.post_add_photo);
         mAddLocationBtn = findViewById(R.id.post_add_location);
         mAddLocationBtn.setOnClickListener(this);
@@ -130,18 +128,30 @@ public class AddPost extends AppCompatActivity implements View.OnClickListener, 
         postKey = mPostRef.push().getKey();
         mPostImageRef = FirebaseStorage.getInstance().getReference().child("postsImages");
 
+        if(postSection.equals("Specials")){
+            mBookURL.setVisibility(View.GONE);
+        }else{
+            mBookURL.setVisibility(View.VISIBLE);
+        }
+
     }
 
     private void saveDataToFireBase() {
+
+        try {
+            bookURL = mBookURL.getText().toString();
+        } catch (Exception e) {
+            bookURL = "";
+        }
+
         if (validate()) {
             mCustomProgress.showProgress(AddPost.this, "Loading...!" + postSection, true);
 
 
-
-
             Log.e(TAG, "onActivityResult: selected images before saving>>>>>>>>>>>>    " + mImagesURL.size());
             PostDataModel postDataModel = new PostDataModel(postKey, mPostNameET.getText().toString()
-                    , mDescription.getText().toString(), mAddressEt.getText().toString(), "", postSection, mImagesURL, lat, lon);
+                    , mDescription.getText().toString(), mAddressEt.getText().toString(), "", postSection, mImagesURL, lat, lon
+                    , bookURL);
 
             mPostRef.child(postKey).setValue(postDataModel)
                     .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -156,7 +166,7 @@ public class AddPost extends AppCompatActivity implements View.OnClickListener, 
                                     public void run() {
                                         finish();
                                     }
-                                },200);
+                                }, 200);
                             } else {
                                 String message = task.getException().getMessage();
                                 Toast.makeText(AddPost.this, "Error Occurred" + message, Toast.LENGTH_SHORT).show();
@@ -346,11 +356,11 @@ public class AddPost extends AppCompatActivity implements View.OnClickListener, 
             }
         }
 
-        if (requestCode == LOCATION_PICK  && resultCode  == RESULT_OK) {
+        if (requestCode == LOCATION_PICK && resultCode == RESULT_OK) {
 
-            mAddressEt.setText(data.getStringExtra("selectedAddress") );
+            mAddressEt.setText(data.getStringExtra("selectedAddress"));
             mAddressEt.setVisibility(View.VISIBLE);
-            lat = data.getDoubleExtra("selectedLat" , 0.0);
+            lat = data.getDoubleExtra("selectedLat", 0.0);
             lon = data.getDoubleExtra("selectedLong", 0.0);
 
         }
@@ -367,9 +377,9 @@ public class AddPost extends AppCompatActivity implements View.OnClickListener, 
         if (EasyPermissions.hasPermissions(this, locationPermmsions)) {
 
             Intent resMapView = new Intent(AddPost.this, MapsActivity.class);
-            startActivityForResult(resMapView , LOCATION_PICK);
+            startActivityForResult(resMapView, LOCATION_PICK);
 
-          //  startActivity(resMapView);
+            //  startActivity(resMapView);
         } else {
             EasyPermissions.requestPermissions(this, "Location Access"
                     , 1111, locationPermmsions);
@@ -408,8 +418,6 @@ public class AddPost extends AppCompatActivity implements View.OnClickListener, 
     public void onPermissionsDenied(int requestCode, @NonNull List<String> perms) {
 
     }
-
-
 
 
 }

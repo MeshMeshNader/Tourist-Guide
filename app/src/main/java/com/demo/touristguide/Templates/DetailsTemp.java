@@ -42,7 +42,7 @@ public class DetailsTemp extends AppCompatActivity {
     String postKey, databaseRefName, postName, postSection, userType;
     double lat, lon;
     //Slider
-    Button mMapBtn;
+    Button mMapBtn, mBookBtn;
     ArrayList<String> mList = new ArrayList<>();
     SliderView sliderView;
     SliderAdapterExample adapter;
@@ -51,6 +51,7 @@ public class DetailsTemp extends AppCompatActivity {
     private DatabaseReference mPostRef;
     FusedLocationProviderClient mFusedLocationProviderClient;
     public double deviceLat, deviceLon, distance;
+    String bookURL = "";
 
     DecimalFormat df = new DecimalFormat("#.#");
 
@@ -99,6 +100,8 @@ public class DetailsTemp extends AppCompatActivity {
             }
         });
 
+        mBookBtn = findViewById(R.id.post_detail_book_btn);
+
         mList.add("https://gfsstore.com/wp-content/themes/gfsstore.com/images/no_image_available.png");
         sliderView = findViewById(R.id.imageSlider);
         adapter = new SliderAdapterExample(this, mList);
@@ -114,6 +117,17 @@ public class DetailsTemp extends AppCompatActivity {
 
 
         getData();
+
+
+
+        mBookBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri uri = Uri.parse(bookURL);
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
 
 
 //        if (userType.equals("admin"))
@@ -188,12 +202,20 @@ public class DetailsTemp extends AppCompatActivity {
                     mPostDescription.setText(postDataModel.getPostDescription());
                     lat = postDataModel.getLat();
                     lon = postDataModel.getLon();
+                    bookURL = postDataModel.getPostBookURL();
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
                             mPostDistance.setText(getDistance());
+
                         }
                     }, 300);
+
+                    if(postSection.equals("Specials")){
+                        mBookBtn.setVisibility(View.GONE);
+                    }else{
+                        mBookBtn.setVisibility(View.VISIBLE);
+                    }
 
 
                     if (snapshot.child("postImageURL").exists()) {

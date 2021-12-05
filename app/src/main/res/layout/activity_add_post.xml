@@ -53,7 +53,6 @@
         android:layout_height="match_parent"
         android:layout_below="@id/tool_bar"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
         android:layout_marginRight="16dp"
         android:orientation="vertical">
 
@@ -102,15 +101,66 @@
             android:padding="16dp"
             android:textSize="18sp" />
 
-        <TextView
-            android:id="@+id/address_tv"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="5dp"
-            android:text="Address"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/address_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:text="Address"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+
+                <ImageView
+                    android:id="@+id/post_add_location"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_baseline_add_location_alt_24" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/photos_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:text="Photos"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/post_add_photo"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_baseline_add_photo_alternate_24" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
 
         <TextView
             android:id="@+id/post_add_address"
@@ -123,33 +173,17 @@
             android:textSize="18sp"
             android:visibility="gone" />
 
-
-        <ImageView
-            android:id="@+id/post_add_location"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:src="@drawable/ic_baseline_add_location_alt_24" />
-
-        <TextView
-        android:id="@+id/photos_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="5dp"
-        android:text="Photos"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-
-        <ImageView
-            android:id="@+id/post_add_photo"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:src="@drawable/ic_baseline_add_photo_alternate_24"
-
-            />
-
+        <EditText
+            android:id="@+id/post_add_book_url"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="5dp"
+            android:hint="Book URL"
+            android:layout_marginRight="25dp"
+            android:background="@drawable/edit_text_shape"
+            android:padding="16dp"
+            android:textSize="18sp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/post_images_recycler"
